@@ -1,20 +1,27 @@
 ﻿Module ProgramHandler
 
-    Public CurrentLine As Integer = 0
-
-
     Sub HandleInstruction()
-        Dim Opcode = Form1.MemoryGrid.Item("Instruction", CurrentLine).Value,
-            Operand1 As String = Form1.MemoryGrid.Item("Operand1", CurrentLine).Value,
-            Operand2 As String = Form1.MemoryGrid.Item("Operand2", CurrentLine).Value,
-            Operand3 As String = Form1.MemoryGrid.Item("Operand3", CurrentLine).Value
-        If Opcode = "LDR" Then LDR(Operand1, Operand2)
-        If Opcode = "STR" Then STR(Operand1, Operand2)
-        If Opcode = "MOV" Then MOV(Operand1, Operand2)
-        If Opcode = "ADD" Then Math_ADD(Operand1, Operand2, Operand3)
-        If Opcode = "SUB" Then Math_SUB(Operand1, Operand2, Operand3)
-        If Opcode = "JMP" Then JMP(Operand1)
-        CurrentLine += 1
+        Try
+            Dim Opcode = Form1.MemoryGrid.Item("Instruction", CInt(Form1.Txt_PC.Text) - 1).Value,
+            Operand1 As String = Form1.MemoryGrid.Item("Operand1", CInt(Form1.Txt_PC.Text) - 1).Value,
+            Operand2 As String = Form1.MemoryGrid.Item("Operand2", CInt(Form1.Txt_PC.Text) - 1).Value,
+            Operand3 As String = Form1.MemoryGrid.Item("Operand3", CInt(Form1.Txt_PC.Text) - 1).Value
+
+            If Opcode = "LDR" Then LDR(Operand1, Operand2)
+            If Opcode = "STR" Then STR(Operand1, Operand2)
+            If Opcode = "MOV" Then MOV(Operand1, Operand2)
+            If Opcode = "ADD" Then Math_ADD(Operand1, Operand2, Operand3)
+            If Opcode = "SUB" Then Math_SUB(Operand1, Operand2, Operand3)
+            If Opcode = "JMP" Then JMP(Operand1)
+            If Opcode = "HALT" Then HALT()
+        Catch
+            Form1.Tmr_Auto.Stop()
+            Form1.Btn_Auto.BackColor = Color.Red
+            Form1.Run = False
+            SharedCode.AddLine(50)
+            MsgBox("Out Of Memory ;(" & vbNewLine & "MAKING MORE!!!!!!")
+        End Try
+        Form1.Txt_PC.Text = CInt(Form1.Txt_PC.Text) + 1
     End Sub
 
 End Module
@@ -42,8 +49,13 @@ Module OpCodeHandler
     End Sub
 
     Sub JMP(Operand1)
-        ProgramHandler.CurrentLine = Operand1 - 1
-        Form1.Txt_PC.Text = Operand1
+        Form1.Txt_PC.Text = CInt(Operand1) - 1
+    End Sub
+
+    Sub HALT()
+        Form1.Tmr_Auto.Stop()
+        Form1.Btn_Auto.BackColor = Color.Red
+        Form1.Run = False
     End Sub
 
 End Module

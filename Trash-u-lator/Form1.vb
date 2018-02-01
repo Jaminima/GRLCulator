@@ -1,6 +1,8 @@
 ﻿Public Class Form1
+
+    Public Run As Boolean = False
+
     Private Sub Btn_Run_Click(sender As Object, e As EventArgs) Handles Btn_Run.Click
-        Txt_PC.Text = CInt(Txt_PC.Text) + 1
         ProgramHandler.HandleInstruction()
     End Sub
 
@@ -14,9 +16,27 @@
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
-        For i = 0 To 48
-            MemoryGrid.Rows.Add()
-        Next
+        SharedCode.AddLine(48)
+    End Sub
 
+    Private Sub Btn_Auto_Click(sender As Object, e As EventArgs) Handles Btn_Auto.Click
+        If Run = False Then
+            Run = True
+            Tmr_Auto.Start()
+            Btn_Auto.BackColor = Color.Green
+        Else
+            Run = False
+            Tmr_Auto.Stop()
+            Btn_Auto.BackColor = Color.Red
+        End If
+    End Sub
+
+    Private Sub Tmr_Auto_Tick(sender As Object, e As EventArgs) Handles Tmr_Auto.Tick
+        Tmr_Auto.Interval = Txt_Step.Text
+        ProgramHandler.HandleInstruction()
+    End Sub
+
+    Private Sub Btn_AddRows_Click(sender As Object, e As EventArgs) Handles Btn_AddRows.Click
+        SharedCode.AddLine(Txt_AddRows.Text)
     End Sub
 End Class

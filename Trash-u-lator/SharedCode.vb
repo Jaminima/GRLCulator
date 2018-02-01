@@ -9,4 +9,10 @@
         Debug.WriteLine("NullFound")
     End Function
 
+    Function AddLine(Add As Integer)
+        For i = 1 To Add
+            Form1.MemoryGrid.Rows.Add()
+        Next
+    End Function
+
 End Module

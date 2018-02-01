@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Panel_Registers = New System.Windows.Forms.Panel()
         Me.Txt_PC = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -46,7 +47,10 @@ Partial Class Form1
         Me.Txt_R0 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Txt_AddRows = New System.Windows.Forms.TextBox()
+        Me.Btn_AddRows = New System.Windows.Forms.Button()
+        Me.Btn_Auto = New System.Windows.Forms.Button()
+        Me.Txt_Step = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Btn_Run = New System.Windows.Forms.Button()
         Me.MemoryGrid = New System.Windows.Forms.DataGridView()
@@ -55,6 +59,7 @@ Partial Class Form1
         Me.Operand1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Operand2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Operand3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Tmr_Auto = New System.Windows.Forms.Timer(Me.components)
         Me.Panel_Registers.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.MemoryGrid, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,7 +93,7 @@ Partial Class Form1
         Me.Panel_Registers.Controls.Add(Me.Label1)
         Me.Panel_Registers.Location = New System.Drawing.Point(13, 13)
         Me.Panel_Registers.Name = "Panel_Registers"
-        Me.Panel_Registers.Size = New System.Drawing.Size(246, 168)
+        Me.Panel_Registers.Size = New System.Drawing.Size(129, 373)
         Me.Panel_Registers.TabIndex = 0
         '
         'Txt_PC
@@ -97,7 +102,7 @@ Partial Class Form1
         Me.Txt_PC.Name = "Txt_PC"
         Me.Txt_PC.Size = New System.Drawing.Size(83, 20)
         Me.Txt_PC.TabIndex = 23
-        Me.Txt_PC.Text = "0"
+        Me.Txt_PC.Text = "1"
         '
         'Label12
         '
@@ -110,7 +115,7 @@ Partial Class Form1
         '
         'Txt_R9
         '
-        Me.Txt_R9.Location = New System.Drawing.Point(32, 134)
+        Me.Txt_R9.Location = New System.Drawing.Point(32, 267)
         Me.Txt_R9.Name = "Txt_R9"
         Me.Txt_R9.Size = New System.Drawing.Size(83, 20)
         Me.Txt_R9.TabIndex = 19
@@ -118,7 +123,7 @@ Partial Class Form1
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(5, 137)
+        Me.Label10.Location = New System.Drawing.Point(5, 270)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(21, 13)
         Me.Label10.TabIndex = 18
@@ -126,7 +131,7 @@ Partial Class Form1
         '
         'Txt_R8
         '
-        Me.Txt_R8.Location = New System.Drawing.Point(148, 108)
+        Me.Txt_R8.Location = New System.Drawing.Point(32, 241)
         Me.Txt_R8.Name = "Txt_R8"
         Me.Txt_R8.Size = New System.Drawing.Size(83, 20)
         Me.Txt_R8.TabIndex = 17
@@ -134,7 +139,7 @@ Partial Class Form1
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(121, 111)
+        Me.Label9.Location = New System.Drawing.Point(5, 244)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(21, 13)
         Me.Label9.TabIndex = 16
@@ -142,7 +147,7 @@ Partial Class Form1
         '
         'Txt_R7
         '
-        Me.Txt_R7.Location = New System.Drawing.Point(32, 108)
+        Me.Txt_R7.Location = New System.Drawing.Point(32, 215)
         Me.Txt_R7.Name = "Txt_R7"
         Me.Txt_R7.Size = New System.Drawing.Size(83, 20)
         Me.Txt_R7.TabIndex = 15
@@ -150,7 +155,7 @@ Partial Class Form1
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(5, 111)
+        Me.Label8.Location = New System.Drawing.Point(5, 218)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(21, 13)
         Me.Label8.TabIndex = 14
@@ -158,7 +163,7 @@ Partial Class Form1
         '
         'Txt_R6
         '
-        Me.Txt_R6.Location = New System.Drawing.Point(148, 82)
+        Me.Txt_R6.Location = New System.Drawing.Point(32, 189)
         Me.Txt_R6.Name = "Txt_R6"
         Me.Txt_R6.Size = New System.Drawing.Size(83, 20)
         Me.Txt_R6.TabIndex = 13
@@ -166,7 +171,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(121, 85)
+        Me.Label7.Location = New System.Drawing.Point(5, 192)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(21, 13)
         Me.Label7.TabIndex = 12
@@ -174,7 +179,7 @@ Partial Class Form1
         '
         'Txt_R5
         '
-        Me.Txt_R5.Location = New System.Drawing.Point(32, 82)
+        Me.Txt_R5.Location = New System.Drawing.Point(32, 163)
         Me.Txt_R5.Name = "Txt_R5"
         Me.Txt_R5.Size = New System.Drawing.Size(83, 20)
         Me.Txt_R5.TabIndex = 11
@@ -182,7 +187,7 @@ Partial Class Form1
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(5, 85)
+        Me.Label6.Location = New System.Drawing.Point(5, 166)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(21, 13)
         Me.Label6.TabIndex = 10
@@ -190,7 +195,7 @@ Partial Class Form1
         '
         'Txt_R4
         '
-        Me.Txt_R4.Location = New System.Drawing.Point(148, 56)
+        Me.Txt_R4.Location = New System.Drawing.Point(32, 137)
         Me.Txt_R4.Name = "Txt_R4"
         Me.Txt_R4.Size = New System.Drawing.Size(83, 20)
         Me.Txt_R4.TabIndex = 9
@@ -198,7 +203,7 @@ Partial Class Form1
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(121, 59)
+        Me.Label5.Location = New System.Drawing.Point(5, 140)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(21, 13)
         Me.Label5.TabIndex = 8
@@ -206,7 +211,7 @@ Partial Class Form1
         '
         'Txt_R3
         '
-        Me.Txt_R3.Location = New System.Drawing.Point(32, 56)
+        Me.Txt_R3.Location = New System.Drawing.Point(32, 111)
         Me.Txt_R3.Name = "Txt_R3"
         Me.Txt_R3.Size = New System.Drawing.Size(83, 20)
         Me.Txt_R3.TabIndex = 7
@@ -214,7 +219,7 @@ Partial Class Form1
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(5, 59)
+        Me.Label4.Location = New System.Drawing.Point(5, 114)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(21, 13)
         Me.Label4.TabIndex = 6
@@ -222,7 +227,7 @@ Partial Class Form1
         '
         'Txt_R2
         '
-        Me.Txt_R2.Location = New System.Drawing.Point(148, 30)
+        Me.Txt_R2.Location = New System.Drawing.Point(32, 85)
         Me.Txt_R2.Name = "Txt_R2"
         Me.Txt_R2.Size = New System.Drawing.Size(83, 20)
         Me.Txt_R2.TabIndex = 5
@@ -230,7 +235,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(121, 33)
+        Me.Label3.Location = New System.Drawing.Point(5, 88)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(21, 13)
         Me.Label3.TabIndex = 4
@@ -238,7 +243,7 @@ Partial Class Form1
         '
         'Txt_R1
         '
-        Me.Txt_R1.Location = New System.Drawing.Point(32, 30)
+        Me.Txt_R1.Location = New System.Drawing.Point(32, 59)
         Me.Txt_R1.Name = "Txt_R1"
         Me.Txt_R1.Size = New System.Drawing.Size(83, 20)
         Me.Txt_R1.TabIndex = 3
@@ -246,7 +251,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(5, 33)
+        Me.Label2.Location = New System.Drawing.Point(5, 62)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(21, 13)
         Me.Label2.TabIndex = 2
@@ -254,7 +259,7 @@ Partial Class Form1
         '
         'Txt_R0
         '
-        Me.Txt_R0.Location = New System.Drawing.Point(148, 7)
+        Me.Txt_R0.Location = New System.Drawing.Point(32, 30)
         Me.Txt_R0.Name = "Txt_R0"
         Me.Txt_R0.Size = New System.Drawing.Size(83, 20)
         Me.Txt_R0.TabIndex = 1
@@ -262,7 +267,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(121, 10)
+        Me.Label1.Location = New System.Drawing.Point(5, 33)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(21, 13)
         Me.Label1.TabIndex = 0
@@ -272,20 +277,54 @@ Partial Class Form1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Gainsboro
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.TextBox1)
+        Me.Panel1.Controls.Add(Me.Txt_AddRows)
+        Me.Panel1.Controls.Add(Me.Btn_AddRows)
+        Me.Panel1.Controls.Add(Me.Btn_Auto)
+        Me.Panel1.Controls.Add(Me.Txt_Step)
         Me.Panel1.Controls.Add(Me.Label13)
         Me.Panel1.Controls.Add(Me.Btn_Run)
-        Me.Panel1.Location = New System.Drawing.Point(13, 188)
+        Me.Panel1.Location = New System.Drawing.Point(13, 392)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(246, 377)
+        Me.Panel1.Size = New System.Drawing.Size(129, 173)
         Me.Panel1.TabIndex = 2
         '
-        'TextBox1
+        'Txt_AddRows
         '
-        Me.TextBox1.Location = New System.Drawing.Point(71, 6)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(161, 20)
-        Me.TextBox1.TabIndex = 25
+        Me.Txt_AddRows.Location = New System.Drawing.Point(71, 32)
+        Me.Txt_AddRows.MaxLength = 4
+        Me.Txt_AddRows.Name = "Txt_AddRows"
+        Me.Txt_AddRows.Size = New System.Drawing.Size(53, 20)
+        Me.Txt_AddRows.TabIndex = 28
+        Me.Txt_AddRows.Text = "1000"
+        '
+        'Btn_AddRows
+        '
+        Me.Btn_AddRows.Location = New System.Drawing.Point(3, 30)
+        Me.Btn_AddRows.Name = "Btn_AddRows"
+        Me.Btn_AddRows.Size = New System.Drawing.Size(62, 23)
+        Me.Btn_AddRows.TabIndex = 29
+        Me.Btn_AddRows.Text = "Add Row"
+        Me.Btn_AddRows.UseVisualStyleBackColor = True
+        '
+        'Btn_Auto
+        '
+        Me.Btn_Auto.BackColor = System.Drawing.Color.Red
+        Me.Btn_Auto.ForeColor = System.Drawing.Color.Black
+        Me.Btn_Auto.Location = New System.Drawing.Point(63, 114)
+        Me.Btn_Auto.Name = "Btn_Auto"
+        Me.Btn_Auto.Size = New System.Drawing.Size(61, 53)
+        Me.Btn_Auto.TabIndex = 26
+        Me.Btn_Auto.Text = "AutoRun"
+        Me.Btn_Auto.UseVisualStyleBackColor = False
+        '
+        'Txt_Step
+        '
+        Me.Txt_Step.Location = New System.Drawing.Point(71, 6)
+        Me.Txt_Step.MaxLength = 4
+        Me.Txt_Step.Name = "Txt_Step"
+        Me.Txt_Step.Size = New System.Drawing.Size(53, 20)
+        Me.Txt_Step.TabIndex = 25
+        Me.Txt_Step.Text = "1000"
         '
         'Label13
         '
@@ -298,11 +337,11 @@ Partial Class Form1
         '
         'Btn_Run
         '
-        Me.Btn_Run.Location = New System.Drawing.Point(3, 318)
+        Me.Btn_Run.Location = New System.Drawing.Point(3, 114)
         Me.Btn_Run.Name = "Btn_Run"
-        Me.Btn_Run.Size = New System.Drawing.Size(75, 53)
+        Me.Btn_Run.Size = New System.Drawing.Size(54, 53)
         Me.Btn_Run.TabIndex = 0
-        Me.Btn_Run.Text = "Run"
+        Me.Btn_Run.Text = "Step"
         Me.Btn_Run.UseVisualStyleBackColor = True
         '
         'MemoryGrid
@@ -310,10 +349,10 @@ Partial Class Form1
         Me.MemoryGrid.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.MemoryGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.MemoryGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Number, Me.Instruction, Me.Operand1, Me.Operand2, Me.Operand3})
-        Me.MemoryGrid.Location = New System.Drawing.Point(266, 13)
+        Me.MemoryGrid.Location = New System.Drawing.Point(148, 13)
         Me.MemoryGrid.Name = "MemoryGrid"
         Me.MemoryGrid.RowHeadersVisible = False
-        Me.MemoryGrid.Size = New System.Drawing.Size(445, 552)
+        Me.MemoryGrid.Size = New System.Drawing.Size(460, 552)
         Me.MemoryGrid.TabIndex = 3
         '
         'Number
@@ -344,11 +383,14 @@ Partial Class Form1
         Me.Operand3.HeaderText = "Operand 3"
         Me.Operand3.Name = "Operand3"
         '
+        'Tmr_Auto
+        '
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(722, 572)
+        Me.ClientSize = New System.Drawing.Size(620, 572)
         Me.Controls.Add(Me.MemoryGrid)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel_Registers)
@@ -387,7 +429,7 @@ Partial Class Form1
     Friend WithEvents Txt_R0 As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Txt_Step As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents Btn_Run As Button
     Friend WithEvents MemoryGrid As DataGridView
@@ -396,4 +438,8 @@ Partial Class Form1
     Friend WithEvents Operand1 As DataGridViewTextBoxColumn
     Friend WithEvents Operand2 As DataGridViewTextBoxColumn
     Friend WithEvents Operand3 As DataGridViewTextBoxColumn
+    Friend WithEvents Btn_Auto As Button
+    Friend WithEvents Tmr_Auto As Timer
+    Friend WithEvents Txt_AddRows As TextBox
+    Friend WithEvents Btn_AddRows As Button
 End Class
