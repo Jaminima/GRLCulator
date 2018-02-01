@@ -93,7 +93,7 @@ Partial Class Form1
         Me.Panel_Registers.Controls.Add(Me.Label1)
         Me.Panel_Registers.Location = New System.Drawing.Point(13, 13)
         Me.Panel_Registers.Name = "Panel_Registers"
-        Me.Panel_Registers.Size = New System.Drawing.Size(129, 373)
+        Me.Panel_Registers.Size = New System.Drawing.Size(129, 299)
         Me.Panel_Registers.TabIndex = 0
         '
         'Txt_PC
@@ -283,9 +283,9 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.Txt_Step)
         Me.Panel1.Controls.Add(Me.Label13)
         Me.Panel1.Controls.Add(Me.Btn_Run)
-        Me.Panel1.Location = New System.Drawing.Point(13, 392)
+        Me.Panel1.Location = New System.Drawing.Point(13, 318)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(129, 173)
+        Me.Panel1.Size = New System.Drawing.Size(129, 121)
         Me.Panel1.TabIndex = 2
         '
         'Txt_AddRows
@@ -310,7 +310,7 @@ Partial Class Form1
         '
         Me.Btn_Auto.BackColor = System.Drawing.Color.Red
         Me.Btn_Auto.ForeColor = System.Drawing.Color.Black
-        Me.Btn_Auto.Location = New System.Drawing.Point(63, 114)
+        Me.Btn_Auto.Location = New System.Drawing.Point(63, 58)
         Me.Btn_Auto.Name = "Btn_Auto"
         Me.Btn_Auto.Size = New System.Drawing.Size(61, 53)
         Me.Btn_Auto.TabIndex = 26
@@ -337,7 +337,7 @@ Partial Class Form1
         '
         'Btn_Run
         '
-        Me.Btn_Run.Location = New System.Drawing.Point(3, 114)
+        Me.Btn_Run.Location = New System.Drawing.Point(3, 58)
         Me.Btn_Run.Name = "Btn_Run"
         Me.Btn_Run.Size = New System.Drawing.Size(54, 53)
         Me.Btn_Run.TabIndex = 0
@@ -352,7 +352,7 @@ Partial Class Form1
         Me.MemoryGrid.Location = New System.Drawing.Point(148, 13)
         Me.MemoryGrid.Name = "MemoryGrid"
         Me.MemoryGrid.RowHeadersVisible = False
-        Me.MemoryGrid.Size = New System.Drawing.Size(460, 552)
+        Me.MemoryGrid.Size = New System.Drawing.Size(460, 426)
         Me.MemoryGrid.TabIndex = 3
         '
         'Number
@@ -390,10 +390,12 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(620, 572)
+        Me.ClientSize = New System.Drawing.Size(620, 449)
         Me.Controls.Add(Me.MemoryGrid)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel_Registers)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.Panel_Registers.ResumeLayout(False)
