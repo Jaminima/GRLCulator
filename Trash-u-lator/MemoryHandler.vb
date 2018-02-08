@@ -35,17 +35,6 @@
         Dim StoreFormat = My.Computer.FileSystem.ReadAllText("./" & FileName & ".Yeet"),
             Rows = StoreFormat.Split("&")
 
-        Debug.WriteLine(Rows.Count - 1)
-
-        For Row = 0 To Rows.Count - 2
-            Dim Cells = Rows(Row).Split("+")
-            For Cell = 0 To Cells.Count - 2
-                Form1.MemoryGrid.Item(Cell, Row).Value = Cells(Cell)
-                Debug.WriteLine(Cells(Cell))
-            Next
-            Form1.MemoryGrid.Rows.Add()
-        Next
-
 
     End Sub
 
