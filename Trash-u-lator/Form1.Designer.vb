@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel_Registers = New System.Windows.Forms.Panel()
@@ -47,6 +47,7 @@ Partial Class Form1
         Me.Txt_R0 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BtnLoadTable = New System.Windows.Forms.Button()
         Me.Txt_AddRows = New System.Windows.Forms.TextBox()
         Me.Btn_AddRows = New System.Windows.Forms.Button()
         Me.Btn_Auto = New System.Windows.Forms.Button()
@@ -54,12 +55,14 @@ Partial Class Form1
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Btn_Run = New System.Windows.Forms.Button()
         Me.MemoryGrid = New System.Windows.Forms.DataGridView()
-        Me.Number = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Instruction = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Tmr_Auto = New System.Windows.Forms.Timer(Me.components)
+        Me.BtnNew = New System.Windows.Forms.Button()
+        Me.BtnSave = New System.Windows.Forms.Button()
+        Me.Line = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OpCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Operand1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Operand2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Operand3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Tmr_Auto = New System.Windows.Forms.Timer(Me.components)
         Me.Panel_Registers.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.MemoryGrid, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -277,16 +280,28 @@ Partial Class Form1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Gainsboro
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.BtnSave)
+        Me.Panel1.Controls.Add(Me.BtnNew)
+        Me.Panel1.Controls.Add(Me.BtnLoadTable)
         Me.Panel1.Controls.Add(Me.Txt_AddRows)
         Me.Panel1.Controls.Add(Me.Btn_AddRows)
         Me.Panel1.Controls.Add(Me.Btn_Auto)
         Me.Panel1.Controls.Add(Me.Txt_Step)
         Me.Panel1.Controls.Add(Me.Label13)
         Me.Panel1.Controls.Add(Me.Btn_Run)
-        Me.Panel1.Location = New System.Drawing.Point(13, 318)
+        Me.Panel1.Location = New System.Drawing.Point(12, 318)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(129, 121)
+        Me.Panel1.Size = New System.Drawing.Size(129, 179)
         Me.Panel1.TabIndex = 2
+        '
+        'BtnLoadTable
+        '
+        Me.BtnLoadTable.Location = New System.Drawing.Point(4, 118)
+        Me.BtnLoadTable.Name = "BtnLoadTable"
+        Me.BtnLoadTable.Size = New System.Drawing.Size(53, 22)
+        Me.BtnLoadTable.TabIndex = 30
+        Me.BtnLoadTable.Text = "Load"
+        Me.BtnLoadTable.UseVisualStyleBackColor = True
         '
         'Txt_AddRows
         '
@@ -348,49 +363,65 @@ Partial Class Form1
         '
         Me.MemoryGrid.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.MemoryGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.MemoryGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Number, Me.Instruction, Me.Operand1, Me.Operand2, Me.Operand3})
+        Me.MemoryGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Line, Me.OpCode, Me.Operand1, Me.Operand2, Me.Operand3})
         Me.MemoryGrid.Location = New System.Drawing.Point(148, 13)
         Me.MemoryGrid.Name = "MemoryGrid"
         Me.MemoryGrid.RowHeadersVisible = False
-        Me.MemoryGrid.Size = New System.Drawing.Size(460, 426)
+        Me.MemoryGrid.Size = New System.Drawing.Size(503, 484)
         Me.MemoryGrid.TabIndex = 3
         '
-        'Number
+        'Tmr_Auto
         '
-        Me.Number.HeaderText = ""
-        Me.Number.MaxInputLength = 3
-        Me.Number.Name = "Number"
-        Me.Number.ReadOnly = True
-        Me.Number.Width = 50
         '
-        'Instruction
+        'BtnNew
         '
-        Me.Instruction.HeaderText = "Instruction"
-        Me.Instruction.Name = "Instruction"
+        Me.BtnNew.Location = New System.Drawing.Point(71, 117)
+        Me.BtnNew.Name = "BtnNew"
+        Me.BtnNew.Size = New System.Drawing.Size(53, 22)
+        Me.BtnNew.TabIndex = 31
+        Me.BtnNew.Text = "New"
+        Me.BtnNew.UseVisualStyleBackColor = True
+        '
+        'BtnSave
+        '
+        Me.BtnSave.Location = New System.Drawing.Point(4, 146)
+        Me.BtnSave.Name = "BtnSave"
+        Me.BtnSave.Size = New System.Drawing.Size(53, 22)
+        Me.BtnSave.TabIndex = 32
+        Me.BtnSave.Text = "Save"
+        Me.BtnSave.UseVisualStyleBackColor = True
+        '
+        'Line
+        '
+        Me.Line.HeaderText = "Line"
+        Me.Line.Name = "Line"
+        Me.Line.ReadOnly = True
+        '
+        'OpCode
+        '
+        Me.OpCode.HeaderText = "OpCode"
+        Me.OpCode.Name = "OpCode"
         '
         'Operand1
         '
-        Me.Operand1.HeaderText = "Operand 1"
+        Me.Operand1.HeaderText = "Operand1"
         Me.Operand1.Name = "Operand1"
         '
         'Operand2
         '
-        Me.Operand2.HeaderText = "Operand 2"
+        Me.Operand2.HeaderText = "Operand2"
         Me.Operand2.Name = "Operand2"
         '
         'Operand3
         '
-        Me.Operand3.HeaderText = "Operand 3"
+        Me.Operand3.HeaderText = "Operand3"
         Me.Operand3.Name = "Operand3"
-        '
-        'Tmr_Auto
-        '
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(620, 449)
+        Me.ClientSize = New System.Drawing.Size(663, 509)
         Me.Controls.Add(Me.MemoryGrid)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel_Registers)
@@ -435,13 +466,16 @@ Partial Class Form1
     Friend WithEvents Label13 As Label
     Friend WithEvents Btn_Run As Button
     Friend WithEvents MemoryGrid As DataGridView
-    Friend WithEvents Number As DataGridViewTextBoxColumn
-    Friend WithEvents Instruction As DataGridViewTextBoxColumn
-    Friend WithEvents Operand1 As DataGridViewTextBoxColumn
-    Friend WithEvents Operand2 As DataGridViewTextBoxColumn
-    Friend WithEvents Operand3 As DataGridViewTextBoxColumn
     Friend WithEvents Btn_Auto As Button
     Friend WithEvents Tmr_Auto As Timer
     Friend WithEvents Txt_AddRows As TextBox
     Friend WithEvents Btn_AddRows As Button
+    Friend WithEvents BtnLoadTable As Button
+    Friend WithEvents BtnNew As Button
+    Friend WithEvents BtnSave As Button
+    Friend WithEvents Line As DataGridViewTextBoxColumn
+    Friend WithEvents OpCode As DataGridViewTextBoxColumn
+    Friend WithEvents Operand1 As DataGridViewTextBoxColumn
+    Friend WithEvents Operand2 As DataGridViewTextBoxColumn
+    Friend WithEvents Operand3 As DataGridViewTextBoxColumn
 End Class

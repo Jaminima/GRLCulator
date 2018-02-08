@@ -2,7 +2,7 @@
 
     Sub HandleInstruction()
         Try
-            Dim Opcode = Form1.MemoryGrid.Item("Instruction", CInt(Form1.Txt_PC.Text) - 1).Value,
+            Dim Opcode = Form1.MemoryGrid.Item("OpCode", CInt(Form1.Txt_PC.Text) - 1).Value,
             Operand1 As String = Form1.MemoryGrid.Item("Operand1", CInt(Form1.Txt_PC.Text) - 1).Value,
             Operand2 As String = Form1.MemoryGrid.Item("Operand2", CInt(Form1.Txt_PC.Text) - 1).Value,
             Operand3 As String = Form1.MemoryGrid.Item("Operand3", CInt(Form1.Txt_PC.Text) - 1).Value
