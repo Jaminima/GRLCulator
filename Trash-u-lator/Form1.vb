@@ -16,7 +16,7 @@
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
-        'SharedCode.AddLine(48)
+        SharedCode.AddLine(48)
     End Sub
 
     Private Sub Btn_Auto_Click(sender As Object, e As EventArgs) Handles Btn_Auto.Click
@@ -45,7 +45,7 @@
     End Sub
 
     Private Sub BtnNew_Click(sender As Object, e As EventArgs) Handles BtnNew.Click
-
+        MemoryHandler.Reset()
     End Sub
 
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click

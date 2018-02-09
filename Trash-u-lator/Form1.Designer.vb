@@ -47,6 +47,8 @@ Partial Class Form1
         Me.Txt_R0 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BtnSave = New System.Windows.Forms.Button()
+        Me.BtnNew = New System.Windows.Forms.Button()
         Me.BtnLoadTable = New System.Windows.Forms.Button()
         Me.Txt_AddRows = New System.Windows.Forms.TextBox()
         Me.Btn_AddRows = New System.Windows.Forms.Button()
@@ -55,14 +57,12 @@ Partial Class Form1
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Btn_Run = New System.Windows.Forms.Button()
         Me.MemoryGrid = New System.Windows.Forms.DataGridView()
-        Me.Tmr_Auto = New System.Windows.Forms.Timer(Me.components)
-        Me.BtnNew = New System.Windows.Forms.Button()
-        Me.BtnSave = New System.Windows.Forms.Button()
         Me.Line = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OpCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Operand1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Operand2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Operand3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Tmr_Auto = New System.Windows.Forms.Timer(Me.components)
         Me.Panel_Registers.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.MemoryGrid, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -294,6 +294,24 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(129, 179)
         Me.Panel1.TabIndex = 2
         '
+        'BtnSave
+        '
+        Me.BtnSave.Location = New System.Drawing.Point(4, 146)
+        Me.BtnSave.Name = "BtnSave"
+        Me.BtnSave.Size = New System.Drawing.Size(53, 22)
+        Me.BtnSave.TabIndex = 32
+        Me.BtnSave.Text = "Save"
+        Me.BtnSave.UseVisualStyleBackColor = True
+        '
+        'BtnNew
+        '
+        Me.BtnNew.Location = New System.Drawing.Point(71, 117)
+        Me.BtnNew.Name = "BtnNew"
+        Me.BtnNew.Size = New System.Drawing.Size(53, 22)
+        Me.BtnNew.TabIndex = 31
+        Me.BtnNew.Text = "New"
+        Me.BtnNew.UseVisualStyleBackColor = True
+        '
         'BtnLoadTable
         '
         Me.BtnLoadTable.Location = New System.Drawing.Point(4, 118)
@@ -325,11 +343,11 @@ Partial Class Form1
         '
         Me.Btn_Auto.BackColor = System.Drawing.Color.Red
         Me.Btn_Auto.ForeColor = System.Drawing.Color.Black
-        Me.Btn_Auto.Location = New System.Drawing.Point(63, 58)
+        Me.Btn_Auto.Location = New System.Drawing.Point(71, 58)
         Me.Btn_Auto.Name = "Btn_Auto"
-        Me.Btn_Auto.Size = New System.Drawing.Size(61, 53)
+        Me.Btn_Auto.Size = New System.Drawing.Size(53, 53)
         Me.Btn_Auto.TabIndex = 26
-        Me.Btn_Auto.Text = "AutoRun"
+        Me.Btn_Auto.Text = "Auto Run"
         Me.Btn_Auto.UseVisualStyleBackColor = False
         '
         'Txt_Step
@@ -370,27 +388,6 @@ Partial Class Form1
         Me.MemoryGrid.Size = New System.Drawing.Size(503, 484)
         Me.MemoryGrid.TabIndex = 3
         '
-        'Tmr_Auto
-        '
-        '
-        'BtnNew
-        '
-        Me.BtnNew.Location = New System.Drawing.Point(71, 117)
-        Me.BtnNew.Name = "BtnNew"
-        Me.BtnNew.Size = New System.Drawing.Size(53, 22)
-        Me.BtnNew.TabIndex = 31
-        Me.BtnNew.Text = "New"
-        Me.BtnNew.UseVisualStyleBackColor = True
-        '
-        'BtnSave
-        '
-        Me.BtnSave.Location = New System.Drawing.Point(4, 146)
-        Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(53, 22)
-        Me.BtnSave.TabIndex = 32
-        Me.BtnSave.Text = "Save"
-        Me.BtnSave.UseVisualStyleBackColor = True
-        '
         'Line
         '
         Me.Line.HeaderText = "Line"
@@ -416,6 +413,9 @@ Partial Class Form1
         '
         Me.Operand3.HeaderText = "Operand3"
         Me.Operand3.Name = "Operand3"
+        '
+        'Tmr_Auto
+        '
         '
         'Form1
         '

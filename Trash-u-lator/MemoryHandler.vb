@@ -20,7 +20,8 @@
             Next
             StoreFormat = StoreFormat & "&"
         Next
-        'StoreFormat = StoreFormat.Replace("+&", "&")
+        StoreFormat = StoreFormat.Replace("+&", "&")
+        StoreFormat = StoreFormat.TrimEnd("&")
 
         Dim FileStore As System.IO.FileStream = System.IO.File.Create("./" & FileName & ".Yeet")
         FileStore.Close()
@@ -33,9 +34,25 @@
         Form1.MemoryGrid.Rows.Clear()
 
         Dim StoreFormat = My.Computer.FileSystem.ReadAllText("./" & FileName & ".Yeet"),
-            Rows = StoreFormat.Split("&")
+            Rows = StoreFormat.Split("&"),
+            RowI = 0, ColI = 0
 
+        For Each Row In Rows
+            Dim Cols = Row.Split("+")
+            Form1.MemoryGrid.Rows.Add()
+            For Each Col In Cols
+                Form1.MemoryGrid.Item(ColI, RowI).Value = Col
+                ColI += 1
+            Next
+            ColI = 0
+            RowI += 1
+        Next
 
+    End Sub
+
+    Sub Reset()
+        Form1.MemoryGrid.Rows.Clear()
+        SharedCode.AddLine(48)
     End Sub
 
 End Module
