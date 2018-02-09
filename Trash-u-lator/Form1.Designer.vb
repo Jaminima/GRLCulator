@@ -379,7 +379,9 @@ Partial Class Form1
         '
         'MemoryGrid
         '
+        Me.MemoryGrid.AllowUserToResizeRows = False
         Me.MemoryGrid.BackgroundColor = System.Drawing.Color.Gainsboro
+        Me.MemoryGrid.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
         Me.MemoryGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.MemoryGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Line, Me.OpCode, Me.Operand1, Me.Operand2, Me.Operand3})
         Me.MemoryGrid.Location = New System.Drawing.Point(148, 13)
@@ -428,7 +430,7 @@ Partial Class Form1
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "GRLCulator"
         Me.Panel_Registers.ResumeLayout(False)
         Me.Panel_Registers.PerformLayout()
         Me.Panel1.ResumeLayout(False)

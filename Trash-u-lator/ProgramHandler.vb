@@ -33,7 +33,7 @@ Module OpCodeHandlerNew
     End Sub
 
     Sub STR(Operand1, Operand2)
-        Form1.MemoryGrid.Item("Operand1", CInt(Operand2)).Value = AddressForm(Operand1)
+        Form1.MemoryGrid.Item("Operand1", CInt(Operand2) - 1).Value = AddressForm(Operand1)
     End Sub
 
     Sub MOV(Operand1, Operand2)

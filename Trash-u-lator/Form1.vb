@@ -32,7 +32,12 @@
     End Sub
 
     Private Sub Tmr_Auto_Tick(sender As Object, e As EventArgs) Handles Tmr_Auto.Tick
-        Tmr_Auto.Interval = Txt_Step.Text
+        Try
+            Tmr_Auto.Interval = Txt_Step.Text
+        Catch
+            Txt_Step.Text = 1000
+            Tmr_Auto.Interval = Txt_Step.Text
+        End Try
         ProgramHandler.HandleInstruction()
     End Sub
 
@@ -51,4 +56,5 @@
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
         MemoryHandler.Save(InputBox("File Name:", "Save", "Default"))
     End Sub
+
 End Class
