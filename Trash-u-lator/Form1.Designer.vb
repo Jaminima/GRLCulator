@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.Panel_Registers = New System.Windows.Forms.Panel()
         Me.Txt_PC = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -46,15 +47,15 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Txt_R0 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel_Settings = New System.Windows.Forms.Panel()
+        Me.Txt_AddRows = New System.Windows.Forms.TextBox()
+        Me.Btn_AddRows = New System.Windows.Forms.Button()
+        Me.Txt_Step = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.BtnSave = New System.Windows.Forms.Button()
         Me.BtnNew = New System.Windows.Forms.Button()
         Me.BtnLoadTable = New System.Windows.Forms.Button()
-        Me.Txt_AddRows = New System.Windows.Forms.TextBox()
-        Me.Btn_AddRows = New System.Windows.Forms.Button()
         Me.Btn_Auto = New System.Windows.Forms.Button()
-        Me.Txt_Step = New System.Windows.Forms.TextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.Btn_Run = New System.Windows.Forms.Button()
         Me.MemoryGrid = New System.Windows.Forms.DataGridView()
         Me.Line = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -63,9 +64,18 @@ Partial Class Form1
         Me.Operand2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Operand3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Tmr_Auto = New System.Windows.Forms.Timer(Me.components)
+        Me.Panel_Toolbar = New System.Windows.Forms.Panel()
+        Me.BTN_ShowsSettings = New System.Windows.Forms.Button()
+        Me.BTN_ShowRun = New System.Windows.Forms.Button()
+        Me.BTN_ShowFile = New System.Windows.Forms.Button()
+        Me.Panel_File = New System.Windows.Forms.Panel()
+        Me.Panel_Run = New System.Windows.Forms.Panel()
         Me.Panel_Registers.SuspendLayout()
-        Me.Panel1.SuspendLayout()
+        Me.Panel_Settings.SuspendLayout()
         CType(Me.MemoryGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel_Toolbar.SuspendLayout()
+        Me.Panel_File.SuspendLayout()
+        Me.Panel_Run.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel_Registers
@@ -94,7 +104,7 @@ Partial Class Form1
         Me.Panel_Registers.Controls.Add(Me.Label2)
         Me.Panel_Registers.Controls.Add(Me.Txt_R0)
         Me.Panel_Registers.Controls.Add(Me.Label1)
-        Me.Panel_Registers.Location = New System.Drawing.Point(13, 13)
+        Me.Panel_Registers.Location = New System.Drawing.Point(12, 53)
         Me.Panel_Registers.Name = "Panel_Registers"
         Me.Panel_Registers.Size = New System.Drawing.Size(129, 299)
         Me.Panel_Registers.TabIndex = 0
@@ -276,50 +286,18 @@ Partial Class Form1
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "R0"
         '
-        'Panel1
+        'Panel_Settings
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Gainsboro
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.BtnSave)
-        Me.Panel1.Controls.Add(Me.BtnNew)
-        Me.Panel1.Controls.Add(Me.BtnLoadTable)
-        Me.Panel1.Controls.Add(Me.Txt_AddRows)
-        Me.Panel1.Controls.Add(Me.Btn_AddRows)
-        Me.Panel1.Controls.Add(Me.Btn_Auto)
-        Me.Panel1.Controls.Add(Me.Txt_Step)
-        Me.Panel1.Controls.Add(Me.Label13)
-        Me.Panel1.Controls.Add(Me.Btn_Run)
-        Me.Panel1.Location = New System.Drawing.Point(12, 318)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(129, 179)
-        Me.Panel1.TabIndex = 2
-        '
-        'BtnSave
-        '
-        Me.BtnSave.Location = New System.Drawing.Point(4, 146)
-        Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(53, 22)
-        Me.BtnSave.TabIndex = 32
-        Me.BtnSave.Text = "Save"
-        Me.BtnSave.UseVisualStyleBackColor = True
-        '
-        'BtnNew
-        '
-        Me.BtnNew.Location = New System.Drawing.Point(71, 117)
-        Me.BtnNew.Name = "BtnNew"
-        Me.BtnNew.Size = New System.Drawing.Size(53, 22)
-        Me.BtnNew.TabIndex = 31
-        Me.BtnNew.Text = "New"
-        Me.BtnNew.UseVisualStyleBackColor = True
-        '
-        'BtnLoadTable
-        '
-        Me.BtnLoadTable.Location = New System.Drawing.Point(4, 118)
-        Me.BtnLoadTable.Name = "BtnLoadTable"
-        Me.BtnLoadTable.Size = New System.Drawing.Size(53, 22)
-        Me.BtnLoadTable.TabIndex = 30
-        Me.BtnLoadTable.Text = "Load"
-        Me.BtnLoadTable.UseVisualStyleBackColor = True
+        Me.Panel_Settings.BackColor = System.Drawing.Color.Gainsboro
+        Me.Panel_Settings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel_Settings.Controls.Add(Me.Txt_AddRows)
+        Me.Panel_Settings.Controls.Add(Me.Btn_AddRows)
+        Me.Panel_Settings.Controls.Add(Me.Txt_Step)
+        Me.Panel_Settings.Controls.Add(Me.Label13)
+        Me.Panel_Settings.Location = New System.Drawing.Point(657, 104)
+        Me.Panel_Settings.Name = "Panel_Settings"
+        Me.Panel_Settings.Size = New System.Drawing.Size(129, 60)
+        Me.Panel_Settings.TabIndex = 2
         '
         'Txt_AddRows
         '
@@ -339,17 +317,6 @@ Partial Class Form1
         Me.Btn_AddRows.Text = "Add Row"
         Me.Btn_AddRows.UseVisualStyleBackColor = True
         '
-        'Btn_Auto
-        '
-        Me.Btn_Auto.BackColor = System.Drawing.Color.Red
-        Me.Btn_Auto.ForeColor = System.Drawing.Color.Black
-        Me.Btn_Auto.Location = New System.Drawing.Point(71, 58)
-        Me.Btn_Auto.Name = "Btn_Auto"
-        Me.Btn_Auto.Size = New System.Drawing.Size(53, 53)
-        Me.Btn_Auto.TabIndex = 26
-        Me.Btn_Auto.Text = "Auto Run"
-        Me.Btn_Auto.UseVisualStyleBackColor = False
-        '
         'Txt_Step
         '
         Me.Txt_Step.Location = New System.Drawing.Point(71, 6)
@@ -368,26 +335,66 @@ Partial Class Form1
         Me.Label13.TabIndex = 24
         Me.Label13.Text = "Step Delay"
         '
+        'BtnSave
+        '
+        Me.BtnSave.Location = New System.Drawing.Point(3, 31)
+        Me.BtnSave.Name = "BtnSave"
+        Me.BtnSave.Size = New System.Drawing.Size(53, 22)
+        Me.BtnSave.TabIndex = 32
+        Me.BtnSave.Text = "Save"
+        Me.BtnSave.UseVisualStyleBackColor = True
+        '
+        'BtnNew
+        '
+        Me.BtnNew.Location = New System.Drawing.Point(3, 3)
+        Me.BtnNew.Name = "BtnNew"
+        Me.BtnNew.Size = New System.Drawing.Size(53, 22)
+        Me.BtnNew.TabIndex = 31
+        Me.BtnNew.Text = "New"
+        Me.BtnNew.UseVisualStyleBackColor = True
+        '
+        'BtnLoadTable
+        '
+        Me.BtnLoadTable.Location = New System.Drawing.Point(3, 59)
+        Me.BtnLoadTable.Name = "BtnLoadTable"
+        Me.BtnLoadTable.Size = New System.Drawing.Size(53, 22)
+        Me.BtnLoadTable.TabIndex = 30
+        Me.BtnLoadTable.Text = "Load"
+        Me.BtnLoadTable.UseVisualStyleBackColor = True
+        '
+        'Btn_Auto
+        '
+        Me.Btn_Auto.BackColor = System.Drawing.Color.Red
+        Me.Btn_Auto.ForeColor = System.Drawing.Color.Black
+        Me.Btn_Auto.Location = New System.Drawing.Point(3, 28)
+        Me.Btn_Auto.Name = "Btn_Auto"
+        Me.Btn_Auto.Size = New System.Drawing.Size(53, 53)
+        Me.Btn_Auto.TabIndex = 26
+        Me.Btn_Auto.Text = "Auto Run"
+        Me.Btn_Auto.UseVisualStyleBackColor = False
+        '
         'Btn_Run
         '
-        Me.Btn_Run.Location = New System.Drawing.Point(3, 58)
+        Me.Btn_Run.Location = New System.Drawing.Point(3, 3)
         Me.Btn_Run.Name = "Btn_Run"
-        Me.Btn_Run.Size = New System.Drawing.Size(54, 53)
+        Me.Btn_Run.Size = New System.Drawing.Size(53, 22)
         Me.Btn_Run.TabIndex = 0
         Me.Btn_Run.Text = "Step"
         Me.Btn_Run.UseVisualStyleBackColor = True
         '
         'MemoryGrid
         '
+        Me.MemoryGrid.AllowUserToResizeColumns = False
         Me.MemoryGrid.AllowUserToResizeRows = False
         Me.MemoryGrid.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.MemoryGrid.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
         Me.MemoryGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.MemoryGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Line, Me.OpCode, Me.Operand1, Me.Operand2, Me.Operand3})
-        Me.MemoryGrid.Location = New System.Drawing.Point(148, 13)
+        Me.MemoryGrid.Location = New System.Drawing.Point(147, 53)
         Me.MemoryGrid.Name = "MemoryGrid"
         Me.MemoryGrid.RowHeadersVisible = False
-        Me.MemoryGrid.Size = New System.Drawing.Size(503, 484)
+        Me.MemoryGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.MemoryGrid.Size = New System.Drawing.Size(504, 440)
         Me.MemoryGrid.TabIndex = 3
         '
         'Line
@@ -399,6 +406,7 @@ Partial Class Form1
         'OpCode
         '
         Me.OpCode.HeaderText = "OpCode"
+        Me.OpCode.MaxInputLength = 3
         Me.OpCode.Name = "OpCode"
         '
         'Operand1
@@ -419,23 +427,92 @@ Partial Class Form1
         'Tmr_Auto
         '
         '
+        'Panel_Toolbar
+        '
+        Me.Panel_Toolbar.BackColor = System.Drawing.Color.Gainsboro
+        Me.Panel_Toolbar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel_Toolbar.Controls.Add(Me.BTN_ShowsSettings)
+        Me.Panel_Toolbar.Controls.Add(Me.BTN_ShowRun)
+        Me.Panel_Toolbar.Controls.Add(Me.BTN_ShowFile)
+        Me.Panel_Toolbar.Location = New System.Drawing.Point(12, 12)
+        Me.Panel_Toolbar.Name = "Panel_Toolbar"
+        Me.Panel_Toolbar.Size = New System.Drawing.Size(639, 35)
+        Me.Panel_Toolbar.TabIndex = 4
+        '
+        'BTN_ShowsSettings
+        '
+        Me.BTN_ShowsSettings.Location = New System.Drawing.Point(126, 3)
+        Me.BTN_ShowsSettings.Name = "BTN_ShowsSettings"
+        Me.BTN_ShowsSettings.Size = New System.Drawing.Size(55, 27)
+        Me.BTN_ShowsSettings.TabIndex = 2
+        Me.BTN_ShowsSettings.Text = "Settings"
+        Me.BTN_ShowsSettings.UseVisualStyleBackColor = True
+        '
+        'BTN_ShowRun
+        '
+        Me.BTN_ShowRun.Location = New System.Drawing.Point(65, 3)
+        Me.BTN_ShowRun.Name = "BTN_ShowRun"
+        Me.BTN_ShowRun.Size = New System.Drawing.Size(55, 27)
+        Me.BTN_ShowRun.TabIndex = 1
+        Me.BTN_ShowRun.Text = "Run"
+        Me.BTN_ShowRun.UseVisualStyleBackColor = True
+        '
+        'BTN_ShowFile
+        '
+        Me.BTN_ShowFile.Location = New System.Drawing.Point(4, 3)
+        Me.BTN_ShowFile.Name = "BTN_ShowFile"
+        Me.BTN_ShowFile.Size = New System.Drawing.Size(55, 27)
+        Me.BTN_ShowFile.TabIndex = 0
+        Me.BTN_ShowFile.Text = "File"
+        Me.BTN_ShowFile.UseVisualStyleBackColor = True
+        '
+        'Panel_File
+        '
+        Me.Panel_File.BackColor = System.Drawing.Color.Gainsboro
+        Me.Panel_File.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel_File.Controls.Add(Me.BtnLoadTable)
+        Me.Panel_File.Controls.Add(Me.BtnNew)
+        Me.Panel_File.Controls.Add(Me.BtnSave)
+        Me.Panel_File.Location = New System.Drawing.Point(726, 12)
+        Me.Panel_File.Name = "Panel_File"
+        Me.Panel_File.Size = New System.Drawing.Size(60, 86)
+        Me.Panel_File.TabIndex = 5
+        '
+        'Panel_Run
+        '
+        Me.Panel_Run.BackColor = System.Drawing.Color.Gainsboro
+        Me.Panel_Run.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel_Run.Controls.Add(Me.Btn_Auto)
+        Me.Panel_Run.Controls.Add(Me.Btn_Run)
+        Me.Panel_Run.Location = New System.Drawing.Point(657, 12)
+        Me.Panel_Run.Name = "Panel_Run"
+        Me.Panel_Run.Size = New System.Drawing.Size(61, 86)
+        Me.Panel_Run.TabIndex = 6
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(663, 509)
+        Me.ClientSize = New System.Drawing.Size(657, 502)
+        Me.Controls.Add(Me.Panel_Run)
+        Me.Controls.Add(Me.Panel_File)
+        Me.Controls.Add(Me.Panel_Toolbar)
         Me.Controls.Add(Me.MemoryGrid)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Panel_Settings)
         Me.Controls.Add(Me.Panel_Registers)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.Text = "GRLCulator"
         Me.Panel_Registers.ResumeLayout(False)
         Me.Panel_Registers.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.Panel_Settings.ResumeLayout(False)
+        Me.Panel_Settings.PerformLayout()
         CType(Me.MemoryGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel_Toolbar.ResumeLayout(False)
+        Me.Panel_File.ResumeLayout(False)
+        Me.Panel_Run.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -463,7 +540,7 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents Txt_R0 As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel_Settings As Panel
     Friend WithEvents Txt_Step As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents Btn_Run As Button
@@ -480,4 +557,10 @@ Partial Class Form1
     Friend WithEvents Operand1 As DataGridViewTextBoxColumn
     Friend WithEvents Operand2 As DataGridViewTextBoxColumn
     Friend WithEvents Operand3 As DataGridViewTextBoxColumn
+    Friend WithEvents Panel_Toolbar As Panel
+    Friend WithEvents BTN_ShowFile As Button
+    Friend WithEvents Panel_File As Panel
+    Friend WithEvents BTN_ShowRun As Button
+    Friend WithEvents Panel_Run As Panel
+    Friend WithEvents BTN_ShowsSettings As Button
 End Class
