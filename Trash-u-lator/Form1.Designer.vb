@@ -312,7 +312,7 @@ Partial Class Form1
         Me.Txt_AddRows.Name = "Txt_AddRows"
         Me.Txt_AddRows.Size = New System.Drawing.Size(53, 20)
         Me.Txt_AddRows.TabIndex = 28
-        Me.Txt_AddRows.Text = "1000"
+        Me.Txt_AddRows.Text = "50"
         '
         'Btn_AddRows
         '

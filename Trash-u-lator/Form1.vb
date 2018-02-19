@@ -133,7 +133,7 @@
             Panel_Settings.Location = New Point(BTN_ShowsSettings.Location.X + OC, BTN_ShowsSettings.Location.Y + OC + 35)
             SettingsPanelShow = True
         Else
-            RunPanelShow = False
+            SettingsPanelShow = False
             Panel_Settings.Location = StorePoint
         End If
     End Sub
