@@ -44,7 +44,7 @@
 
     Private Sub Btn_Run_Click(sender As Object, e As EventArgs) Handles Btn_Run.Click
         ProgramHandler.HandleInstruction()
-        Txt_Log.AppendText(vbNewLine & "Ran A Step")
+        'Txt_Log.AppendText(vbNewLine & "Ran A Step")
     End Sub
 
     Private Sub Btn_AddRows_Click(sender As Object, e As EventArgs) Handles Btn_AddRows.Click

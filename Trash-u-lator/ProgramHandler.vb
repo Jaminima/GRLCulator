@@ -61,7 +61,7 @@ Module OpCodeHandlerNew
     Sub B(Operand1)
         For Row = 0 To Form1.MemoryGrid.Rows.Count - 1
             If ":" & Operand1 = Form1.MemoryGrid.Item("OpCode", Row).Value Then
-                JMP(Row + 1)
+                Form1.Txt_PC.Text = CInt(Row)
                 Form1.Txt_Log.AppendText(vbNewLine & "Branched Too " & Operand1)
             End If
         Next
