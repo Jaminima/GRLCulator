@@ -53,12 +53,12 @@
     End Sub
 
     Private Sub BtnLoadTable_Click(sender As Object, e As EventArgs) Handles BtnLoadTable.Click
-        Try
-            MemoryHandler.Load(InputBox("File Name:", "Load", "Default"))
+        'Try
+        MemoryHandler.Load(InputBox("File Name:", "Load", "Default"))
             Txt_Log.AppendText(vbNewLine & "Loaded")
-        Catch
-            Txt_Log.AppendText(vbNewLine & "Invalid File")
-        End Try
+        'Catch
+        'Txt_Log.AppendText(vbNewLine & "Invalid File")
+        'End Try
     End Sub
 
     Private Sub BtnNew_Click(sender As Object, e As EventArgs) Handles BtnNew.Click

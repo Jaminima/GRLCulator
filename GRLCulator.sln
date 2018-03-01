@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Trash-u-lator", "Trash-u-lator\Trash-u-lator.vbproj", "{8CE7C895-C4EC-4DA1-B622-AA912819AAB9}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GRLCulator", "GRLCulator\GRLCulator.vbproj", "{8CE7C895-C4EC-4DA1-B622-AA912819AAB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8C953B0-129D-4AFE-BD53-780B86B21991}
 	EndGlobalSection
 EndGlobal
