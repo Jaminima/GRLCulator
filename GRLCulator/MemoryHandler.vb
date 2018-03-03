@@ -19,7 +19,7 @@
         Form1.MemoryGrid.Rows.Clear()
 
         Dim Content = StreamWriter.CSV.Read2DArray(FileName, "./")
-        'Debug.WriteLine(Content.GetLength(0) - 1)
+
         For Row As Integer = 0 To Content.GetLength(0) - 1
             Form1.MemoryGrid.Rows.Add()
             For Col As Integer = 0 To 3
