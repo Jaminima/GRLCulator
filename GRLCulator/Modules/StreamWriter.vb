@@ -36,7 +36,7 @@ Module StreamWriter
                 For Col = 0 To Arr.GetLength(1) - 1
                     Writer.Write(Arr(Row, Col) & ",")
                 Next
-                Writer.Write(vbNewLine)
+                Writer.Write(vbLf)
             Next
 
             Writer.Close()
@@ -47,10 +47,10 @@ Module StreamWriter
 
             Dim Reader = My.Computer.FileSystem.OpenTextFileReader(Directory & "/" & FileName & ".csv"),
                 Content = Reader.ReadToEnd,
-                Retrn As String(,) = New String(Content.Split(vbNewLine).Count - 1, Content.Split(vbNewLine)(0).Split(",").Count) {}
+                Retrn As String(,) = New String(Content.Split(vbLf).Count - 1, Content.Split(vbLf)(0).Split(",").Count) {}
 
-            For Row = 0 To File.ReadAllLines(Directory & "/" & FileName & ".csv").Count
-                Dim RowContent = Content.Split(vbNewLine)(Row)
+            For Row = 0 To File.ReadAllLines(Directory & "/" & FileName & ".csv").Count - 1
+                Dim RowContent = Content.Split(vbLf)(Row)
                 For Column = 0 To RowContent.Split(",").Count - 1
                     Retrn(Row, Column) = RowContent.Split(",")(Column)
                 Next
